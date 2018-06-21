@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+<!-- <style>
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #000000;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#saveData{
+    background-color: #4CAF50;
+}
+
+#saveData:hover {
+    background-color: #45a049;
+}
+
+div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+}
+body{
+    width: 785px;
+    overflow: hidden;
+}
+
+#saveData{
+    position: absolute;
+    display: none;
+}
+
+#fetchData{
+    position: absolute;
+}
+
+.accordion {
+    display: flex;
+    vertical-align: middle;
+    align-items: center;
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+}
+
+.active, .accordion:hover {
+    background-color: #ccc;
+}
+
+.accordion:after {
+    content: '\002B';
+    color: #777;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+
+.active:after {
+    content: "\2212";
+}
+
+.panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    overflow: -webkit-paged-y;
+}
+
+.accordion img{
+    width: 30px;
+    height: 30px;
+    margin-right: 50px; 
+}
+
+.accordion p{
+    flex: 1;
+}
+#mainContainer{
+    display:  flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+#mainContainer>section{
+    flex: 1
+}
+button.activeJobRole{
+    background-color: #a6f785;
+}
+
+.activeJobRole.accordion:after{
+    content: '>';
+}
+
+
+</style> -->
+
+
+<body>
+<!-- 
+<div id="mainContainer">
+    <section>
+        <h3 style="text-align: center">Click on fetch Data button</h3>
+        <button class="accordion"><img src="../icons/linkedin.png"><p>Linked In</p></button>
+        <div class="panel">
+            <div style="position: relative;">
+                <form style="width: 100%;">
+                    <label for="name">First Name</label>
+                    <input type="text" id="name" name="firstname" placeholder="Your name..">
+                
+                    <label for="lname">Email</label>
+                    <input type="text" id="email" name="email" placeholder="Your email id..">
+                
+                    <label for="phone">Phone Number</label>
+                    <input type="text" id="phone" name="phone" placeholder="Your phone number..">
+                
+                    <label for="birthday">Birthday</label>
+                    <input type="text" id="birthday" name="birthday" placeholder="Your birthday..">
+                
+                    <label for="ims">IMS</label>
+                    <input type="text" id="ims" name="ims" placeholder="Your ims..">
+                
+                    <label for="address">Address</label>
+                    <input type="text" id="address" name="address" placeholder="Your address..">
+                
+                    <label for="linkedin">Linkedin Url</label>
+                    <input type="text" id="linkedin" name="linkedin" placeholder="Your linked in account url...">
+                
+                    <div style="position: relative;width: 100%">
+                            <input id="fetchData" type="submit" value="Fetch Data">
+                            <input id="saveData" type="submit" value="Save Data">
+                    </div>
+                    
+                </form> 
+            </div>
+        </div>
+        
+        <button class="accordion"><img src="../icons/naukri.png"><p>Naukri.com</p></button>
+        <div class="panel">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+    </section>
+
+    <section id="jobProfiles">
+        <h3 style="text-align: center">Below are the job roles you created</h3>
+        
+    </section>
+    
+    <section id="savedUser">
+        <h3 style="text-align: center">Below is the list of candidates for <span id="candidatesJobRole"></span></h3>
+        <div id="usersList">
+            
+        </div>
+        <div style="position: relative;width: 100%">
+            <input id="" type="submit" value="Submit All Users">
+       </div>
+    </section>
+</div> -->
+
+<div class="mainContainer">
+    <h2 style="text-align: center">METTL RECRUIT EXTENSION</h2>
+    <section id="jobProfiles">
+            <select>
+            </select>
+    </section>
+
+    <section id="extButtons">
+            <button class="button button1">Candidate : <span id="candidatesCount"></span></button>
+            <button id="fetchData" class="button button1">Fetch Data</button>
+            <button class="button button1">Reset</button>
+    </section>
+
+    <section id="userdetails">
+            <h3>Below is the list of candidates slected for job profile <span id="jobProfileName"></span></h3>
+            <div id="usersList">
+            </div>
+    </section>
+    <button id="submitAll" class="button">Submit</button>
+</div>
+
+
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" src="popup.js"></script>
+</body>
+</html>

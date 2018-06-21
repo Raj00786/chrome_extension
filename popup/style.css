@@ -1,0 +1,78 @@
+body{
+    background-color: #fafafa;
+}
+select {
+    margin: 10px 5px;
+    display: block;
+    width: 100%;
+    padding: 5px 35px 5px 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    height: 34px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: url(http://www.stackoverflow.com/favicon.ico) 96% / 15% no-repeat #eee;
+}
+
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.button1 {
+    padding: 10px 24px;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.user_card{
+    white-space: nowrap;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    background-color: #1f4422e0;
+    width: 90%;
+    margin: 5px auto;
+}
+
+.user_card p{
+    flex: 1;
+}
+.user_card img{
+    height: 40px;
+    width: 40px;
+    margin: 0px 5px;
+}
+
+#usersList{
+    margin: 10px 10px;
+    max-height: 350px;
+    position: relative;
+    overflow-y: scroll;
+}
+
+#extButtons{
+    display: flex;
+}
+
+#jobProfiles{
+    margin: auto;
+    display: flex;
+    width: 80%;
+}
+
+#submitAll{
+    width: 80%;
+    padding: 10px 1px;
+    margin: auto;
+    display: block;
+    background-color: darkgreen;
+}

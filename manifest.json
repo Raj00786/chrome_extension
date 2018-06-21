@@ -2,22 +2,22 @@
   "manifest_version": 2,
   "name": "Mettl",
   "description": "This extension can be used on different websites like linked In, Naukri.com and many more to fetch user data from their profile",
-  "version": "1.4" ,
+  "version": "1.8" ,
   "background":{
-    "scripts":["background.js"]
+    "scripts":["background/background.js"]
   },
   "content_scripts": [
     {
       "matches": ["https://www.linkedin.com/*","http://www.linkedin.com/*"],
-      "css":["contentStyle.css"],
-      "js": ["jquery.min.js","contentScript.js"]
+      "css":["content/contentStyle.css"],
+      "js": ["popup/jquery.min.js","content/contentScript.js"]
     }
   ],
   "icons":{
-    "16":"icon.png",
-    "32":"icon.png",
-    "64":"icon.png",
-    "128":"icon.png"
+    "16":"icons/icon.png",
+    "32":"icons/icon.png",
+    "64":"icons/icon.png",
+    "128":"icons/icon.png"
   },
   "permissions": [
     "tabs", "<all_urls>",
@@ -25,12 +25,12 @@
     "https://*/*"
   ],
   "browser_action": {
-    "default_title": "Google Mail",
-    "default_popup": "popup.html"
+    "default_title": "Mettl Recruit",
+    "default_popup": "popup/popup.html"
   },
   "web_accessible_resources": [
-    "rajloader.gif",
-    "naukri.png",
-    "linkedin.png"
+    "icons/rajloader.gif",
+    "icons/naukri.png",
+    "icons/linkedin.png"
   ]
 }

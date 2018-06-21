@@ -4,8 +4,7 @@ chrome.runtime.onMessage.addListener(
             case "fetchData":
                 fetchData();
                 break;
-            case "submit":
-                console.log(message);
+            case "submitData":
                 submitData(message.data);
                 break;
             default:
@@ -19,18 +18,6 @@ var url = window.location;
 var urlPath = url.pathname.split("/");
 var userData = new Object();
 
-function submitData(data){
-    $.post("http://www.localhost:3000/userData",
-    data,
-    function(data,status){
-        if(status=="success"){
-            alert("Your profile updated in our database....Thank you :)");            
-        }else{
-            alert("There is some issue in sending data to server");
-        }
-    });
-}
-
 //function to get data
 function getData(){
     var model = document.getElementsByTagName("artdeco-modal-overlay");
@@ -39,6 +26,19 @@ function getData(){
     var userName = header[0].getElementsByTagName("h1")[0].innerText;
 
     userData["name"]=userName;
+
+    //fetch image from linkedin
+    var bgImage = '../icons/user.png';
+    if(document.getElementsByClassName("profile-photo-edit__preview")[0]){
+        bgImage = document.getElementsByClassName("profile-photo-edit__preview")[0].currentSrc || bgImage;
+    }else{
+        var img = $(".pv-top-card-section__profile-photo-container").find("[aria-label='"+userName+"']")[0];
+        style = img.currentStyle || window.getComputedStyle(img, false),
+        bgImage = style.backgroundImage.slice(4, -1).replace(/"/g, "");
+    }
+  
+    userData["image"]=bgImage;
+    userData["uniqueId"] = new Date().valueOf();
 
     var sections = content[0].getElementsByClassName("section-info");
     var loopc = sections[0].getElementsByTagName("section");
@@ -67,12 +67,13 @@ function getData(){
 }
 
 function fetchData(){
+    console.log("fetch request");
     if(urlPath.length==4){
         if(urlPath[1]=='in'){
             var data = document.querySelector("[data-control-name='contact_see_more']");
             var infoId = data.id;
             document.getElementById(infoId).click();
-            var loaderUrl = chrome.extension.getURL("rajloader.gif");
+            var loaderUrl = chrome.extension.getURL("../icons/rajloader.gif");
             var loader = '<div id="loading"><img id="loading-image" src="'+loaderUrl+'" alt="Loading..." /></div>';
     
             $('body').prepend(loader);
@@ -84,3 +85,26 @@ function fetchData(){
         }
     }
 }
+
+
+
+
+
+
+
+
+
+//CAN BE USED TO SUBMIT USER DATA TO SERVER
+
+function submitData(data){
+    $.post("http://www.localhost:3000/userData",
+    data,
+    function(data,status){
+        if(status=="success"){
+            alert("Your profile updated in our database....Thank you :)");            
+        }else{
+            alert("There is some issue in sending data to server");
+        }
+    });
+}
+
